@@ -1,0 +1,77 @@
+{
+  "project_info": {
+    "project_number": "106797327979",
+    "firebase_url": "https://nabelleapk.firebaseio.com",
+    "project_id": "nabelleapk",
+    "storage_bucket": "nabelleapk.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:106797327979:android:25f8d310d8b759c68e732e",
+        "android_client_info": {
+          "package_name": "com.androidxlt.nabelle"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "106797327979-tenn0ed6a37shht54hkrrtalqfk8vblu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.androidxlt.nabelle",
+            "certificate_hash": "5c91fc455877d89ccfa550bac1f5b9447180975e"
+          }
+        },
+        {
+          "client_id": "106797327979-nvm9rti3gd6tbvs5g42anbsadfehc3e7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC3YIa9LLv4dG608NyHw7odrZH20RyVgtM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "106797327979-nvm9rti3gd6tbvs5g42anbsadfehc3e7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:106797327979:android:624d39d0eae88b418e732e",
+        "android_client_info": {
+          "package_name": "org.fundacion.nabelle"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "106797327979-nvm9rti3gd6tbvs5g42anbsadfehc3e7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC3YIa9LLv4dG608NyHw7odrZH20RyVgtM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "106797327979-nvm9rti3gd6tbvs5g42anbsadfehc3e7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

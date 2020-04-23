@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    app:layout_gravity="left">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/imagen_tipo_servicio"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_gravity="left"
+            android:foregroundGravity="left|center_horizontal" />
+
+        <TextView
+            android:id="@+id/desc_corta"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center|fill"
+            android:gravity="center"
+            android:text="Nombre"
+            android:textColor="@color/colorNaranja"
+            android:textSize="20sp" />
+
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

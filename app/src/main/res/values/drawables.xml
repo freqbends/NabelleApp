@@ -1,0 +1,6 @@
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+    <item name="ic_menu_ajustes" type="drawable">@drawable/ajustes</item>
+    <item name="ic_menu_promociones" type="drawable">@drawable/promociones</item>
+    <item name="ic_menu_servicios" type="drawable">@drawable/servicios</item>
+    <item name="ic_menu_galeria" type="drawable">@drawable/galeria</item>
+</resources>
