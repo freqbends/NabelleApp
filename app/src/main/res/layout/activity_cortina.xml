@@ -6,15 +6,31 @@
     android:layout_height="match_parent"
     tools:context=".ui.cortina.CortinaActivity">
 
+    <TextView
+        android:id="@+id/nabelleInicio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="147dp"
+        android:layout_marginTop="181dp"
+        android:layout_marginEnd="147dp"
+        android:layout_marginBottom="90dp"
+        android:foregroundGravity="center"
+        android:text="Fundación Nabelle"
+        android:textAlignment="center"
+        android:textColor="#FFC107"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/imageView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="355dp"
-        android:layout_height="257dp"
+        android:layout_width="297dp"
+        android:layout_height="152dp"
         android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
         android:src="@drawable/ic_nabelle"
         app:layout_constraintBottom_toBottomOf="parent"
