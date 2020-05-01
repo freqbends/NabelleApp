@@ -101,65 +101,12 @@
                 android:inputType="date" />
 
             <TextView
-                android:id="@+id/textView8"
+                android:id="@+id/direccion"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Dirección" />
-
-            <EditText
-                android:id="@+id/calle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="Calle"
-                android:inputType="textPersonName"
-                android:text="Calle" />
-
-            <TextView
-                android:id="@+id/textView9"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Estado" />
-
-            <Spinner
-                android:id="@+id/estado"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
-            <TextView
-                android:id="@+id/textView10"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Municipio" />
-
-            <Spinner
-                android:id="@+id/municipio"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
-            <TextView
-                android:id="@+id/textView11"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Colonia" />
-
-            <Spinner
-                android:id="@+id/colonia"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
-            <TextView
-                android:id="@+id/textView12"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Código Postal" />
-
-            <EditText
-                android:id="@+id/codigoPostal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="textPostalAddress" />
+                android:text="Agregar Dirección"
+                android:textColor="#2196F3"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/textView13"

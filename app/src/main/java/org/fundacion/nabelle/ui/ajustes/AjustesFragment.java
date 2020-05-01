@@ -46,8 +46,10 @@ import org.fundacion.nabelle.conexionBD.ConexionSQLiteHelper;
 import org.fundacion.nabelle.interfaces.UsuarioInterface;
 import org.fundacion.nabelle.model.Usuario;
 import org.fundacion.nabelle.presenter.usuarioPresenter.PresentadorUsuario;
+import org.fundacion.nabelle.ui.direccion.DireccionActivity;
 import org.fundacion.nabelle.ui.login.LoginActivity;
 import org.fundacion.nabelle.utils.UtilidadesDB;
+import org.fundacion.nabelle.utils.UtilidadesTablasDB;
 
 import static androidx.constraintlayout.widget.Constraints.TAG;
 
@@ -56,7 +58,7 @@ public class AjustesFragment extends Fragment implements View.OnClickListener, U
     private GalleryViewModel galleryViewModel;
     View vista;
     Usuario usuario;
-    private TextView correo;
+    private TextView correo,direccion;
     private Button botonGuardar,botonActualizar;
     private EditText nombre,apPaterno,apMaterno,fechaNacimiento,calle,codigoPostal,seccionElectoral,clave,numeroElectoral,curp,rfc,celular,fijo;
     ImageView cerrarSesion;
@@ -88,8 +90,6 @@ public class AjustesFragment extends Fragment implements View.OnClickListener, U
         apPaterno = (EditText)vista.findViewById(R.id.apPaterno);
         apMaterno = (EditText)vista.findViewById(R.id.apMaterno);
         fechaNacimiento = (EditText)vista.findViewById(R.id.fechaNacimiento);
-        calle = (EditText)vista.findViewById(R.id.calle);
-        codigoPostal = (EditText)vista.findViewById(R.id.codigoPostal);
         seccionElectoral = (EditText)vista.findViewById(R.id.seccionElectoral);
         clave = (EditText)vista.findViewById(R.id.clave);
         numeroElectoral = (EditText)vista.findViewById(R.id.numeroElectoral);
@@ -99,39 +99,17 @@ public class AjustesFragment extends Fragment implements View.OnClickListener, U
         fijo = (EditText)vista.findViewById(R.id.fijo);
         cerrarSesion = (ImageView)vista.findViewById(R.id.img_sesion);
         cerrarSesion.setOnClickListener(this);
-
-
-        estado = vista.findViewById(R.id.estado);
-        municipio = vista.findViewById(R.id.municipio);
-        colonia = vista.findViewById(R.id.colonia);
         genero = vista.findViewById(R.id.genero);
-
         presentadorUsuario.setVista(this);
         presentadorUsuario.obtenerUsuario(usuario);
         adaptadorEC = ArrayAdapter.createFromResource(getContext(),R.array.estadoCivil,android.R.layout.simple_spinner_item);
         progreso.setVisibility(View.INVISIBLE);
         estadoCivil.setAdapter(adaptadorEC);
-        ArrayAdapter<CharSequence> adaptadorEstado = ArrayAdapter.createFromResource(getContext(),R.array.estado,android.R.layout.simple_spinner_item);
-        estado.setAdapter(adaptadorEstado);
+        direccion = (TextView) vista.findViewById(R.id.direccion);
+        direccion.setOnClickListener(this);
         auth = FirebaseAuth.getInstance();
         conn = new ConexionSQLiteHelper(getContext(),"bd_nabelle",null,1);
 
-
-
-        estado.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                if(i == 0){
-                    listaMunicipios();
-                }
-            }
-
-
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
-
-            }
-        });
 
 
     return vista;
@@ -185,6 +163,11 @@ public class AjustesFragment extends Fragment implements View.OnClickListener, U
                 dialogoImagen(view).show();
                 break;
 
+            case R.id.direccion:
+                Intent intent = new Intent(getContext(), DireccionActivity.class);
+                startActivity(intent);
+                break;
+
         }
 
     }
@@ -206,9 +189,6 @@ public class AjustesFragment extends Fragment implements View.OnClickListener, U
         if(usuario.getEstado() == null){
             estadoCivil.setAdapter(adaptadorEC);
         }
-
-        calle.setText(usuario.getCalle());
-        codigoPostal.setText(usuario.getCodigoPostal());
         seccionElectoral.setText(usuario.getSeccionElectoral());
         clave.setText(usuario.getClaveElector());
         numeroElectoral.setText(usuario.getNumIdentificador());
@@ -247,7 +227,8 @@ public class AjustesFragment extends Fragment implements View.OnClickListener, U
                 if (usuario != null) {
                     auth.signOut();
                     Toast.makeText(getContext(), "¡Esta cerrando su sesión!", Toast.LENGTH_SHORT).show();
-                    eliminarUsuarioSQLite(usuario);
+                    UtilidadesTablasDB utils = new UtilidadesTablasDB();
+                    utils.eliminarUsuarioSQLite(getActivity().getApplicationContext(),usuario);
 
 
                     startActivity(new Intent(getContext(), LoginActivity.class));
@@ -265,11 +246,6 @@ public class AjustesFragment extends Fragment implements View.OnClickListener, U
 
     }
 
-    private void eliminarUsuarioSQLite(Usuario usuario){
-        SQLiteDatabase db = conn.getWritableDatabase();
-        String[]parametro = {usuario.getCorreo()};
-        db.delete(UtilidadesDB.TABLA_USUARIO,UtilidadesDB.CAMPO_ID+"=?",parametro);
-        db.close();
-    }
+
 
 }

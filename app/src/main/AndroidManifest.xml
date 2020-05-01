@@ -23,7 +23,8 @@
         android:roundIcon="@mipmap/ic_nabelle"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.galeria.DetalleGaleriaActivity"></activity>
+        <activity android:name=".ui.direccion.DireccionActivity"></activity>
+        <activity android:name=".ui.galeria.DetalleGaleriaActivity" />
         <activity android:name=".ui.servicios.ListaServiciosPorTipoActivity" />
         <activity android:name=".ui.cortina.CortinaActivity">
             <intent-filter>

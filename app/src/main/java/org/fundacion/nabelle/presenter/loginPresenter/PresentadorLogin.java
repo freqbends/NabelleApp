@@ -45,6 +45,7 @@ public class PresentadorLogin implements LoginInterface {
                             usuario.setCorreo(correo);
                             Intent intent = new Intent(mContext, MainActivity.class);
                             intent.putExtra("correo",usuario.getCorreo());
+                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP );
                             mContext.startActivity(intent);
                         }
                     }

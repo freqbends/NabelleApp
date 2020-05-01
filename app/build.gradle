@@ -60,6 +60,8 @@ dependencies {
     annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
     implementation 'androidx.gridlayout:gridlayout:1.0.0'
 
+    compile 'com.readystatesoftware.sqliteasset:sqliteassethelper:+'
+
 
 }
 

@@ -20,6 +20,7 @@ import org.fundacion.nabelle.ui.cuenta.SignupActivity;
 import org.fundacion.nabelle.presenter.loginPresenter.PresentadorLogin;
 import org.fundacion.nabelle.ui.galeria.Galeria;
 import org.fundacion.nabelle.utils.UtilidadesDB;
+import org.fundacion.nabelle.utils.UtilidadesTablasDB;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -36,6 +37,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().hide();
         setContentView(R.layout.activity_login);
         presentadorLogin = new PresentadorLogin(this,auth);
 
@@ -64,11 +66,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 }else{
                     progressBar.setVisibility(View.VISIBLE);
                     progressBar.setProgress(20);
-
-                    Long idResultante = registrarUsuario();
+                    UtilidadesTablasDB utils = new UtilidadesTablasDB();
+                    Long idResultante = utils.registrarUsuario(getApplicationContext(),email,password);
                     if(idResultante != 0 && idResultante != null){
                         presentadorLogin.autenticaUsuario(email,password);
-                        finish();
+                        //finish();
                     }else{
                         Toast.makeText(this,"Hubo un error, favor de intentar más tarde",Toast.LENGTH_LONG).show();
                     }
@@ -92,13 +94,5 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     }
 
-    public Long registrarUsuario(){
-        ConexionSQLiteHelper conn = new ConexionSQLiteHelper(this,"bd_nabelle",null,1);
-        SQLiteDatabase db = conn.getWritableDatabase();
-        ContentValues values = new ContentValues();
-        values.put(UtilidadesDB.CAMPO_ID,email);
-        values.put(UtilidadesDB.CAMPO_CORREO,email);
-        values.put(UtilidadesDB.CAMPO_PWD,password);
-        return db.insert(UtilidadesDB.TABLA_USUARIO,UtilidadesDB.CAMPO_ID,values);
-    }
+
 }
